@@ -15,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <Feed />
-        {children}
+        <main className='bg-gray-50 h-screen overflow-y-scroll scrollbar-hide'>
+          <Header />
+          <Feed />
+          {children}
+        </main>
       </body>
     </html>
   )

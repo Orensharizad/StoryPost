@@ -11,4 +11,12 @@
     .btn-header:hover {
         @apply scale-125 transition-all duration-150 ease-out
     }
+
+    .btn-post {
+        @apply h-7 cursor-pointer transition-all duration-150 ease-out
+    }
+
+    .btn-post:hover {
+        @apply scale-125
+    }
 }
