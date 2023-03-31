@@ -12,11 +12,11 @@ function PostPreview({ post }: Props) {
     return (
         <article className='bg-white my-7 border rounded-sm'>
             <div className='flex items-center p-5 '>
-                <img className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={post.userImg} alt="" />
-                <p className='flex-1 font-bold '>{post.username}</p>
+                <img className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={post.createdBy.userImg} alt="" />
+                <p className='flex-1 font-bold '>{post.createdBy.fullname}</p>
                 <EllipsisHorizontalIcon className='h-5' />
             </div>
-            <img className='object-cover w-full' src={post.img} alt="" />
+            <img className='object-cover w-full' src={post.postImgUrl} alt="" />
             <div className='flex justify-between px-4 pt-4  '>
                 <div className='flex space-x-4 '>
                     <HeartIcon className='btn-post' />
@@ -26,8 +26,8 @@ function PostPreview({ post }: Props) {
                 <BookmarkIcon className='btn-post' />
             </div>
             <p className='p-5 truncate'>
-                <span className='font-bold mr-1'>{post.username}</span>
-                {post.caption}
+                <span className='font-bold mr-1'>{post.createdBy.fullname}</span>
+                {post.postDesc}
             </p>
 
 

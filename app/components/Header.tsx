@@ -1,10 +1,20 @@
+'use client'
 import Image from "next/image"
 import { MagnifyingGlassIcon, PlusCircleIcon, UserGroupIcon, HeartIcon, PaperAirplaneIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { HomeIcon } from '@heroicons/react/24/solid'
+import { useAppSelector } from "../Hooks/stateHook"
 
 
 function Header() {
+
+
+
+    const { user } = useAppSelector((state) => state.user)
+
+
     return (
+
+
         <header className=" shadow-sm border-b bg-white sticky top-0 z-50 " >
             <nav className="flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto py-3">
 
@@ -47,7 +57,7 @@ function Header() {
                     <UserGroupIcon className="btn-header md:inline-flex" />
                     <HeartIcon className="btn-header md:inline-flex" />
 
-                    <img src="https://res.cloudinary.com/dsvs2bgn4/image/upload/v1674479066/main_aq4l31.jpg" className="h-10 w-10 rounded-full cursor-pointer  " />
+                    <img src={user?.userImg} className="h-10 w-10 rounded-full cursor-pointer  " />
 
                 </div>
             </nav>

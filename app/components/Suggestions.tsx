@@ -6,7 +6,6 @@ import { Suggestion } from '../models/globalModel'
 function Suggestions() {
 
     const [suggestion, setSuggestion] = useState<Suggestion[]>([])
-    console.log('suggestion,: ', suggestion,);
 
     useEffect(() => {
         loadSuggestion()
