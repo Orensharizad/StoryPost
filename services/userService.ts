@@ -1,5 +1,4 @@
-import { User } from "../models/globalModel"
-import { CheckAuth } from "../mongoDB/user.service"
+import { User } from "@/app/models/globalModel"
 import { httpService } from "./httpService"
 import { utilService } from "./utilService"
 
@@ -17,24 +16,22 @@ export const userService = {
 
 
 function getUsers() {
-    return httpService.get(`user`)
+    return httpService.get(`users`)
 }
 
 
 async function getById(userId: any) {
-    // const user = await storageService.get('user', userId)
-    const user = await httpService.get(`user/${userId}`)
-    return user
+    return httpService.get('user/' + userId)
+
 }
 
 
 
 async function update(newUser: any) {
 
-    const user = await httpService.put(`user`, newUser)
-    // Handle case in which admin updates other user's details
-    // if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-    return user
+    return httpService.put(`user`, newUser)
+
+
 }
 
 async function login(userCred: User) {

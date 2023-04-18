@@ -1,4 +1,4 @@
-import { Post } from "../models/globalModel"
+import { Post } from "@/app/models/globalModel"
 import { httpService } from "./httpService"
 
 
@@ -11,6 +11,8 @@ export const postService = {
     getEmptyPost
 
 }
+
+
 
 async function query() {
     const posts: Post[] = await httpService.get('post')
@@ -46,30 +48,9 @@ function getEmptyPost(): Post {
             "fullname": '',
             "userImg": ''
         },
-        "comments": [
-            {
-                "_id": '',
-                "createdAt": Date.now(),
-                "createdBy": {
-                    "userId": '',
-                    "fullname": '',
-                    "userImg": ''
-                },
-                "comment": ''
-
-            }
-        ],
-        "likes": [
-            {
-                "_id": '',
-                "createdBy": {
-                    "userId": '',
-                    "fullname": '',
-                    "userImg": ''
-                },
-
-            }
-        ]
+        "comments": [],
+        "likes": [],
+        "savedBy": []
     }
 }
 

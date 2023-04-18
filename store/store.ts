@@ -1,18 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userSlice from './userSlice'
 
-const defaultMiddlewareConfig = {
-    serializableCheck: {
-        ignoredPaths: ["stay.filterBy.searchBy.startDate", "stay.filterBy.searchBy.endDate"],
-    }
-};
+
 
 export const store = configureStore({
     reducer: {
         user: userSlice,
     },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware(defaultMiddlewareConfig),
+
 });
 
 

@@ -24,16 +24,19 @@ export async function getById(userId: any) {
         const user = collection.findOne({ _id: new ObjectId(userId) })
         return user
     } catch (err) {
-        console.error(`while finding user${userId}`, err)
+        console.error(`while finding user ${userId}`, err)
         throw err
     }
 }
 
 
 export async function update(user: User) {
+    const currUser = await getById(user._id)
     try {
         const userToSave = {
-            ...user
+            ...currUser,
+            fullname: user.fullname,
+            userImg: user.userImg
         }
         const collection = await getCollection('user')
         await collection.updateOne({ _id: new ObjectId(user._id) }, { $set: userToSave })

@@ -2,7 +2,7 @@
 
 import { Provider } from "react-redux";
 import { useAppSelector } from "../Hooks/stateHook";
-import { store } from "../store/store";
+import { store } from "../../store/store";
 import Login from "./Login";
 import { ReduxProvider } from "./ReduxProvider";
 import UserMsg from "./UserMsg";

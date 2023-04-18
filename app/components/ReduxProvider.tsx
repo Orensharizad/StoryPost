@@ -1,8 +1,5 @@
 'use client'
-
-import { Provider } from "react-redux";
 import { useAppSelector } from "../Hooks/stateHook";
-import { store } from "../store/store";
 import Login from "./Login";
 import UserMsg from "./UserMsg";
 

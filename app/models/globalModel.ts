@@ -11,13 +11,14 @@ export interface Suggestion {
 
 
 export interface Post {
-    _id?: string;
+    _id?: any;
     createdAt: number;
     postImgUrl: string
     postDesc: string
     createdBy: CreatedBy;
     comments: Comment[];
     likes: Like[];
+    savedBy: string[];
 }
 
 export interface Like {
@@ -26,23 +27,35 @@ export interface Like {
 }
 
 export interface Comment {
-    _id: string;
-    createdAt: number;
+    _id: any;
+    createdAt: any;
     createdBy: CreatedBy;
-    comment: string;
+    comment: any;
 }
 
 export interface CreatedBy {
-    userId: string;
+    userId: any;
     fullname: string;
     userImg: string;
 }
 
 export interface User {
-    _id?: string
+    _id?: any
     username: string
     fullname: string
     password?: number | string
     userImg: string;
 
+}
+
+export interface SavedBy {
+    userId: any
+
+}
+
+export interface Message {
+    id: any
+    user: User
+    message: string
+    date: Date
 }

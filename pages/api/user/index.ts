@@ -1,6 +1,7 @@
 
 import { User } from '@/app/models/globalModel'
-import { add, CheckAuth, getByUsername } from '@/app/mongoDB/user.service'
+import { updateCreatedBy } from '@/app/mongoDB/post.service'
+import { add, CheckAuth, getByUsername, update } from '@/app/mongoDB/user.service'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export async function handler(
@@ -42,10 +43,23 @@ export async function handler(
         }
     }
 
+    if (req.method === 'PUT') {
+        try {
+            const user = req.body
+            await update(user)
+            await updateCreatedBy(user)
+            return res.status(200).json(user)
+
+        } catch (err) {
+            return res.status(500)
+
+        }
+    }
 
 
 
-    res.setHeader('Alllow', ['GET', 'POST'])
+
+    res.setHeader('Alllow', ['GET', 'POST', 'PUT'])
     res.status(425).end(`Method ${req.method} is not allowed}`)
 }
 

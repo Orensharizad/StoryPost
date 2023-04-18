@@ -1,38 +1,53 @@
 'use client'
-
-import React from 'react'
-import MiniProfile from './MiniProfile'
 import PostList from './PostList'
 import StoryList from './StoryList'
-import Suggestions from './Suggestions'
-import useSWR from 'swr'
-import { postService } from '../services/postService'
-import Loader from './Loader'
+import AddPostModal from './AddPostModal'
+import { useAppDispatch, useAppSelector } from '../Hooks/stateHook'
+import { postService } from '@/services/postService'
+import { setPosts, setSideBarType } from '@/store/userSlice'
+import { useEffect, useState } from 'react'
+import PostLoader from './PostLoader'
+import SearchModal from './SearchModal'
+
 
 
 function Feed() {
 
-    const { data: posts, error, isLoading } = useSWR('posts', postService.query)
+    const { posts, isOpenSearchModal } = useAppSelector((state) => state.user)
+    const dispatch = useAppDispatch()
+
+    const { isOpenAddPostModal } = useAppSelector((state) => state.user)
+    useEffect(() => {
+        loadPosts()
+        dispatch(setSideBarType('home'))
+
+        return () => {
+            dispatch(setPosts([]))
+        }
+
+    }, [])
 
 
-    if (!posts) return <Loader />
+    const loadPosts = async () => {
+        try {
+            const posts = await postService.query()
+            dispatch(setPosts(posts))
+
+        } catch (err) {
+            console.log('err: cannot load posts', err)
+        }
+
+    }
+
+
     return (
-        <main className='grid grid-cols-1 md:grid-cols-2 md:max-w-3xl xl:grid-cols-3 xl:max-w-4xl mx-auto'>
-
-            <section className='col-span-2'>
+        <main className='grid grid-cols-1 md:grid-cols-2 md:max-w-3xl xl:grid-cols-3 xl:max-w-2xl mx-auto'>
+            <SearchModal />
+            <section className='col-span-3'>
                 <StoryList />
-                <PostList posts={posts} />
+                {!posts.length ? <PostLoader /> : <PostList posts={posts} />}
             </section>
-
-            <section className='hidden xl:inline-grid md:col-span-1'>
-                <div className='fixed top-20'>
-                    <MiniProfile />
-                    <Suggestions />
-                </div>
-            </section>
-
-
-
+            {isOpenAddPostModal && <AddPostModal />}
         </main>
     )
 }

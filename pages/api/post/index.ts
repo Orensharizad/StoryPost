@@ -1,12 +1,12 @@
 import { Post } from "@/app/models/globalModel"
-import { getPosts } from "@/app/mongoDB/post.service"
+import { add, getPosts } from "@/app/mongoDB/post.service"
 
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Post[]>
+    res: NextApiResponse<Post[] | Post>
 ) {
     if (req.method === 'GET') {
 
@@ -16,6 +16,18 @@ export async function handler(
         } catch (err) {
             return res.status(500)
         }
+    }
+
+    if (req.method === 'POST') {
+        const post = req.body
+        try {
+            await add(post)
+            return res.status(200).json(post)
+        } catch (err) {
+            return res.status(500)
+
+        }
+
     }
 
     res.setHeader('Alllow', ['GET'])

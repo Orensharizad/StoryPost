@@ -1,7 +1,7 @@
 'use client'
 import { useAppDispatch, useAppSelector } from '../Hooks/stateHook'
-import { userService } from '../services/userService'
-import { setUser } from '../store/userSlice'
+import { setUser } from '../../store/userSlice'
+import Link from 'next/link'
 
 function MiniProfile() {
     const dispatch = useAppDispatch()
@@ -15,7 +15,9 @@ function MiniProfile() {
 
     return (
         <div className='flex items-center justify-between mt-14 ml-10'>
-            <img className='w-16 h-16 rounded-full border p-[2px] ' src={user?.userImg} alt="" />
+            <Link href={`/profile/${user?._id}`}>
+                <img className='w-16 h-16 rounded-full border p-[2px] ' src={user?.userImg} alt="" />
+            </Link>
 
             <div className='flex-1 mx-4'>
                 <h2 className='font-bold'>{user?.fullname}</h2>

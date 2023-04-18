@@ -1,43 +1,44 @@
 
-import { BookmarkIcon, EllipsisHorizontalIcon, ChatBubbleOvalLeftEllipsisIcon, HeartIcon, PaperAirplaneIcon, FaceSmileIcon } from '@heroicons/react/24/outline'
-
-import { HeartIcon as HeartIconField } from "@heroicons/react/24/solid";
 import { Post } from '../models/globalModel'
+import { useState } from 'react';
+import CommentList from './CommentList';
+import Image from 'next/image';
+import LikeModal from './LikeModal';
+import PostIcons from './PostIcons';
+import AddComment from './AddComment';
+import PostPreviewHeader from './PostPreviewHeader';
+
 
 type Props = {
     post: Post
 }
 
 function PostPreview({ post }: Props) {
+
+    const [isOpenLikeModal, setIsOpenLikeModal] = useState(false)
+
+
+
+
     return (
-        <article className='bg-white my-7 border rounded-sm'>
-            <div className='flex items-center p-5 '>
-                <img className='rounded-full h-12 w-12 object-contain border p-1 mr-3' src={post.createdBy.userImg} alt="" />
-                <p className='flex-1 font-bold '>{post.createdBy.fullname}</p>
-                <EllipsisHorizontalIcon className='h-5' />
-            </div>
-            <img className='object-cover w-full' src={post.postImgUrl} alt="" />
-            <div className='flex justify-between px-4 pt-4  '>
-                <div className='flex space-x-4 '>
-                    <HeartIcon className='btn-post' />
-                    <ChatBubbleOvalLeftEllipsisIcon className='btn-post' />
-                    <PaperAirplaneIcon className='btn-post rotate-[300deg]' />
+        <article className='bg-white  rounded-sm mb-16 md:max-w-[80%] mx-auto'>
+            <PostPreviewHeader post={post} />
+            <Image className='object-contain max-h-[515px]' width={536} height={300} src={post.postImgUrl} alt="img" />
+            <PostIcons post={post} />
+
+            <div className='p-3 truncate flex flex-col'>
+                <span onClick={() => setIsOpenLikeModal(prev => !prev)} className='font-bold mb-1 cursor-pointer'>{post.likes.length} likes</span>
+                <div className='break-text flex flex-wrap items-center'>
+                    <span className='font-bold mr-1'>{post.createdBy.fullname}</span>
+                    <span className='break-text text-sm'>{post.postDesc}</span>
                 </div>
-                <BookmarkIcon className='btn-post' />
             </div>
-            <p className='p-5 truncate'>
-                <span className='font-bold mr-1'>{post.createdBy.fullname}</span>
-                {post.postDesc}
-            </p>
 
+            {post.comments.length > 0 && < CommentList comments={post.comments} />}
+            <AddComment post={post} />
 
-
-            <form className='flex items-center p-4'>
-                <FaceSmileIcon className='h-7' />
-                <input className='border-none flex-1 focus:ring-0 outline-none' type="text" placeholder='Comment...' />
-                <button className='font-semibold text-blue-400 '>Post</button>
-
-            </form>
+            {(isOpenLikeModal && post.likes.length > 0) && <LikeModal likes={post.likes} setIsOpenLikeModal={setIsOpenLikeModal} />}
+            <hr />
 
 
         </article>

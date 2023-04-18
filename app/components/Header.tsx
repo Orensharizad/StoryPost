@@ -2,7 +2,9 @@
 import Image from "next/image"
 import { MagnifyingGlassIcon, PlusCircleIcon, UserGroupIcon, HeartIcon, PaperAirplaneIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { HomeIcon } from '@heroicons/react/24/solid'
-import { useAppSelector } from "../Hooks/stateHook"
+// import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
+import { setIsOpenAddPostModal } from "../../store/userSlice"
+import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
 
 
 function Header() {
@@ -10,6 +12,9 @@ function Header() {
 
 
     const { user } = useAppSelector((state) => state.user)
+    const dispatch = useAppDispatch()
+
+
 
 
     return (
@@ -53,7 +58,7 @@ function Header() {
                         <span className="absolute -top-2 -right-4 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white">3</span>
 
                     </div>
-                    <PlusCircleIcon className="btn-header md:inline-flex" />
+                    <PlusCircleIcon onClick={() => dispatch(setIsOpenAddPostModal(true))} className="btn-header md:inline-flex" />
                     <UserGroupIcon className="btn-header md:inline-flex" />
                     <HeartIcon className="btn-header md:inline-flex" />
 
