@@ -1,7 +1,7 @@
 
 
-import { User } from '@/app/models/globalModel'
-import { getById } from '@/app/mongoDB/user.service'
+import { User } from '@/models/globalModel'
+import { getById } from '@/mongoDB/user.service'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export async function handler(

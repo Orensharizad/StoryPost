@@ -1,4 +1,4 @@
-import { User } from "@/app/models/globalModel"
+import { User } from '@/models/globalModel'
 import { httpService } from "./httpService"
 import { utilService } from "./utilService"
 

@@ -1,8 +1,7 @@
 
 import { ObjectId } from "mongodb";
-import { Comment, Like, Post, User } from "../models/globalModel";
 import { getCollection } from "./index";
-import { CreatedBy } from "../models/globalModel";
+import { Comment, CreatedBy, Like, Post, User } from "@/models/globalModel";
 
 
 export async function getPosts() {

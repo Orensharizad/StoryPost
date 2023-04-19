@@ -12,7 +12,7 @@ import ImgDetailsModal from '../../components/ImgDetailsModal'
 import AddPostModal from '../../components/AddPostModal'
 import SearchUsers from '../../components/SearchUsers'
 
-function Page() {
+function Explore() {
     const [selectedPost, setSelectePost] = useState<null | Post>(null)
     const [search, setSearch] = useState<string>('')
     const [idx, setIdx] = useState<number>(0)
@@ -25,8 +25,9 @@ function Page() {
         loadPosts()
 
         return () => {
-            dispatch(setPosts([]))
+            dispatch(setPosts(null))
         }
+
     }, [])
 
 
@@ -49,6 +50,7 @@ function Page() {
     }
 
     const onChangeImg = (diff: number) => {
+        if (!posts) return
         if (diff === 1 && idx >= posts.length - 1 || (diff === -1 && idx === 0)) return
         setSelectePost(posts[idx + diff])
         setIdx(prev => prev + diff)
@@ -72,7 +74,7 @@ function Page() {
 
             {
 
-                !posts.length ? <ExploreLoader /> :
+                !posts?.length ? <ExploreLoader /> :
                     <section className='md:mt-8 col-span-6 md:col-span-5 md:max-w-[1350px] mx-auto p-3 md:p-0 '>
 
                         <div className="relative mt-1  rounded-md ">
@@ -114,4 +116,4 @@ function Page() {
 }
 
 
-export default Page
+export default Explore

@@ -1,7 +1,6 @@
 'use client'
-import { faker } from '@faker-js/faker'
 import React, { useEffect, useState } from 'react'
-import { Suggestion, User } from '@/models/globalModel'
+import { User } from '@/models/globalModel'
 import { userService } from '@/services/userService'
 import Link from 'next/link'
 import SuggestionsLoader from './SuggestionsLoader'
@@ -9,29 +8,16 @@ import { useAppSelector } from '@/hooks/stateHook'
 
 function Suggestions() {
 
-    const [suggestion, setSuggestion] = useState<Suggestion[]>([])
     const [users, setUsers] = useState<User[]>([])
     const { user: loggdinUser } = useAppSelector((state) => state.user)
 
 
     useEffect(() => {
-        loadSuggestion()
         loadUsers()
 
     }, [])
 
-    const loadSuggestion = () => {
-        const suggestion = [...Array(5)].map((_, i) => ({
-            _id: faker.datatype.uuid(),
-            sex: faker.name.sexType(),
-            firstName: faker.name.firstName(),
-            lastName: faker.name.lastName(),
-            lavatar: faker.image.avatar(),
-            company: faker.company.name()
-        }))
 
-        setSuggestion(suggestion)
-    }
 
     const loadUsers = async () => {
         try {

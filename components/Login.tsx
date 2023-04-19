@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
+import { useAppDispatch } from '@/hooks/stateHook';
 import { User } from "@/models/globalModel";
 import { setUser } from "../store/userSlice";
 import { userService } from "@/services/userService";
@@ -15,15 +15,38 @@ function Login() {
 
     const onSignIn = async (ev: FormEvent<HTMLFormElement> | null) => {
         ev?.preventDefault()
+        if (!ev) {
+            setUserCred({
+                username: 'oren',
+                fullname: "",
+                password: 'oren123',
+                userImg: "",
+
+            })
+        }
         const notification = toast.loading('loading...')
 
 
         try {
-            const user: User = await userService.login(userCred)
+            if (ev === null) {
+                const user: User = await userService.login({
+                    username: 'oren',
+                    fullname: "",
+                    password: 'oren123',
+                    userImg: "",
+
+                })
+                dispatch(setUser(user))
+
+            }
+            else {
+                const user: User = await userService.login(userCred)
+                dispatch(setUser(user))
+
+            }
             toast.success('Successfully !', {
                 id: notification
             })
-            dispatch(setUser(user))
 
         } catch (err) {
             toast.error('Invalid username or password', {
@@ -73,16 +96,16 @@ function Login() {
 
     }
 
-    const onSignInGuest = () => {
-        const userCred = {
-            username: 'oren',
-            fullname: "",
-            password: 'oren123',
-            userImg: "",
-        }
-        setUserCred(userCred)
-        onSignIn(null)
-    }
+    // const onSignInGuest = async () => {
+    //     const userCred = {
+    //         username: 'oren',
+    //         fullname: "",
+    //         password: 'oren123',
+    //         userImg: "",
+    //     }
+    //     setUserCred(userCred)
+    //     await onSignIn(null)
+    // }
 
 
     return (
@@ -137,12 +160,28 @@ function Login() {
 
                     </form>
                 }
-                <div onClick={() => setIsSignIn(prev => !prev)} className="bg-white  text-center  py-4 cursor-pointer">
-                    <span className="text-sm">{!isSignIn ? <p>Don't have an account?<span className="text-blue-500 text-sm font-semibold">Sign up</span></p> : <p>Don't have an account?<span className="text-blue-500 text-sm font-semibold">Sign in</span></p>}</span>
+                <div onClick={() => setIsSignIn(prev => !prev)} className="bg-white text-center py-4 cursor-pointer">
+
+                    <div className="text-sm">
+                        {!isSignIn ?
+
+                            <p>
+                                <span>Dont have an account</span>
+                                <span className="text-blue-500 text-sm font-semibold">Sign up</span>
+                            </p>
+
+
+                            :
+                            <p>
+                                <span>already have an account</span>
+                                <span className="text-blue-500 text-sm font-semibold">Sign in</span>
+                            </p>
+                        }
+                    </div>
 
                 </div>
 
-                <button onClick={onSignInGuest}>Or Continue as Guest</button>
+                <button onClick={() => onSignIn(null)}>Or Continue as Guest</button>
             </div>
         </div>
 

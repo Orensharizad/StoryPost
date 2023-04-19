@@ -10,7 +10,7 @@ import { db } from '@/firebase'
 import Chat from '../../components/messageCmps/Chat'
 import { User } from '@/models/globalModel';
 
-function page() {
+function Message() {
     const { user: loggdinUser } = useAppSelector((state) => state.user)
     const [users, setUsers] = useState<User[]>([])
     const [selectedUser, setSelectedUser] = useState<User | null>(null)
@@ -86,4 +86,4 @@ function page() {
     )
 }
 
-export default page
+export default Message

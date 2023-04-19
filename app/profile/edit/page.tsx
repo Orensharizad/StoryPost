@@ -12,7 +12,7 @@ import { toast } from 'react-hot-toast';
 
 
 
-function page() {
+function EditProfile() {
 
     const { user } = useAppSelector((state) => state.user)
     const [fullname, setFullName] = useState<string | undefined>(user?.fullname)
@@ -115,4 +115,4 @@ function page() {
     )
 }
 
-export default page
+export default EditProfile

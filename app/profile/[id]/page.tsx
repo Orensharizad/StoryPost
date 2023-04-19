@@ -64,6 +64,7 @@ function Profile({ params: { id } }: any) {
     }
 
     const onChangeImg = (diff: number) => {
+        if (!posts) return
         if (diff === 1 && idx >= posts.length - 1 || (diff === -1 && idx === 0)) return
         setSelectePost(posts[idx + diff])
         setIdx(prev => prev + diff)
@@ -71,6 +72,7 @@ function Profile({ params: { id } }: any) {
     }
 
     const onChangeType = async (type: string) => {
+        if (!posts) return
         setType(type)
         if (!user) return
         try {
@@ -114,7 +116,7 @@ function Profile({ params: { id } }: any) {
                                 {(loggdinUser?._id === user._id) && <Link href={'profile/edit'} className='bg-[#efefef] px-3 py-1 rounded-md font-semibold text-sm md:text-base'>Edit Profile</Link>}
                             </div>
                             <section className='hidden md:inline-flex'>
-                                <ProfileFollowers postsLength={posts.length} />
+                                <ProfileFollowers postsLength={posts?.length} />
                             </section>
 
                         </div>
@@ -122,7 +124,7 @@ function Profile({ params: { id } }: any) {
                 }
 
                 <section className='md:hidden'>
-                    <ProfileFollowers postsLength={posts.length} />
+                    <ProfileFollowers postsLength={posts?.length} />
                 </section>
 
                 <hr className='py-2' />
@@ -136,7 +138,7 @@ function Profile({ params: { id } }: any) {
                 </div>
 
 
-                {!posts.length ? <ProfileImgsLoader /> :
+                {!posts?.length ? <ProfileImgsLoader /> :
 
                     <div className='grid grid-cols-3 gap-1 my-6 '>
                         {posts.map((post: Post) =>

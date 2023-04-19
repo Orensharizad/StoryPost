@@ -1,5 +1,5 @@
-import { Post } from "@/app/models/globalModel"
-import { add, getPosts } from "@/app/mongoDB/post.service"
+import { Post } from "@/models/globalModel"
+import { add, getPosts } from "@/mongoDB/post.service"
 
 
 import type { NextApiRequest, NextApiResponse } from 'next'

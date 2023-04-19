@@ -1,4 +1,4 @@
-import { Post } from "@/app/models/globalModel"
+import { Post } from '@/models/globalModel'
 import { httpService } from "./httpService"
 
 

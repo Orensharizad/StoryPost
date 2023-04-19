@@ -1,33 +1,19 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Post, User } from '../app/models/globalModel'
+import { Post, User } from '@/models/globalModel'
 import type { RootState } from './store'
 
 // Define a type for the slice state
 interface UserState {
     user: User | null
     isOpenAddPostModal: boolean
-    posts: Post[]
+    posts: Post[] | null
     sideBarType: string
     isOpenSearchModal: boolean
 }
 
 // Define the initial state using that type
 const initialState: UserState = {
-    // user: {
-    //     fullname
-    //         :
-    //         "Oren Sharizad",
-    //     userImg
-    //         :
-    //         "https://res.cloudinary.com/dd09wjwjn/image/upload/v1680598166/jlfeexlhbuls0x6lw0qs.jpg",
-    //     username
-    //         :
-    //         "oren",
-    //     _id
-    //         :
-    //         "6426da7636c777c59558ee9f"
-    // },
     user: null,
     isOpenAddPostModal: false,
     isOpenSearchModal: false,
@@ -44,7 +30,7 @@ export const userSlice = createSlice({
         setUser: (state, action: PayloadAction<User | null>) => {
             state.user = action.payload
         },
-        setPosts: (state, action: PayloadAction<Post[]>) => {
+        setPosts: (state, action: PayloadAction<Post[] | null>) => {
             state.posts = action.payload
         },
         setIsOpenAddPostModal: (state, action: PayloadAction<boolean>) => {

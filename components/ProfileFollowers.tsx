@@ -1,7 +1,7 @@
 
 
 type Props = {
-    postsLength: number
+    postsLength: number | null | undefined
 }
 function ProfileFollowers({ postsLength }: Props) {
     return (

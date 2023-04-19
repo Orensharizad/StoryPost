@@ -1,7 +1,7 @@
 
 import { ObjectId } from "mongodb";
-import { User } from "../models/globalModel";
 import { getCollection } from "./index";
+import { User } from "@/models/globalModel";
 
 
 export async function getUsers() {

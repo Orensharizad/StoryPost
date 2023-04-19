@@ -1,7 +1,7 @@
 
-import { User } from '@/app/models/globalModel'
-import { updateCreatedBy } from '@/app/mongoDB/post.service'
-import { add, CheckAuth, getByUsername, update } from '@/app/mongoDB/user.service'
+import { User } from '@/models/globalModel'
+import { updateCreatedBy } from '@/mongoDB/post.service'
+import { add, CheckAuth, getByUsername, update } from '@/mongoDB/user.service'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export async function handler(

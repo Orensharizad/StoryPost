@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { AddPostIcon } from "../app/iconLibary";
-
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-import useSWR from 'swr'
 import { setIsOpenAddPostModal, setPosts } from '../store/userSlice';
 import { postService } from '@/services/postService';
 import { uploadService } from '@/services/upload.service';
@@ -58,6 +56,7 @@ function AddPostModal({ }: Props) {
     }
 
     const handleAddPost = async () => {
+        if (!posts) return
 
         try {
             await postService.save(post)
