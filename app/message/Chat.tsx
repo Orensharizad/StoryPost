@@ -5,7 +5,7 @@ import { db } from '@/firebase'
 import MessageList from './MessageList'
 import MessageInput from './MessageInput'
 import { utilService } from '@/services/utilService'
-import { useAppSelector } from '../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 
 type Props = {

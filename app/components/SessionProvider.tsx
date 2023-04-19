@@ -1,7 +1,7 @@
 'use client'
 
 import { Provider } from "react-redux";
-import { useAppSelector } from "../Hooks/stateHook";
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { store } from "../../store/store";
 import Login from "./Login";
 import { ReduxProvider } from "./ReduxProvider";

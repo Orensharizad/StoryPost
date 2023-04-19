@@ -2,7 +2,7 @@
 import PostList from './PostList'
 import StoryList from './StoryList'
 import AddPostModal from './AddPostModal'
-import { useAppDispatch, useAppSelector } from '../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { postService } from '@/services/postService'
 import { setPosts, setSideBarType } from '@/store/userSlice'
 import { useEffect, useState } from 'react'
@@ -42,12 +42,10 @@ function Feed() {
 
     return (
         <main className='grid grid-cols-1 md:grid-cols-2 md:max-w-3xl xl:grid-cols-3 xl:max-w-2xl mx-auto'>
-            <SearchModal />
             <section className='col-span-3'>
                 <StoryList />
                 {!posts.length ? <PostLoader /> : <PostList posts={posts} />}
             </section>
-            {isOpenAddPostModal && <AddPostModal />}
         </main>
     )
 }

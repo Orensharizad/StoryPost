@@ -1,5 +1,5 @@
 'use client'
-import { useAppDispatch, useAppSelector } from '../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { setUser } from '../../store/userSlice'
 import Link from 'next/link'
 

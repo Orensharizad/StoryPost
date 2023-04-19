@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { AddPostIcon } from "../iconLibary";
 
-import { useAppDispatch, useAppSelector } from '../Hooks/stateHook';
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import useSWR from 'swr'
 import { setIsOpenAddPostModal, setPosts } from '../../store/userSlice';
@@ -9,6 +8,7 @@ import { postService } from '@/services/postService';
 import { uploadService } from '@/services/upload.service';
 import { Post } from '../models/globalModel';
 import { toast } from 'react-hot-toast';
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 
 
 

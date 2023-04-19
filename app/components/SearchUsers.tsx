@@ -1,6 +1,6 @@
 import { userService } from "@/services/userService"
 import { useEffect, useState } from "react"
-import { useAppSelector } from "../Hooks/stateHook"
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { User } from "../models/globalModel"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import SearchLoader from "./SearchLoader"

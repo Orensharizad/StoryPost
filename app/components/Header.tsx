@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon, PlusCircleIcon, UserGroupIcon, HeartIcon, PaperAir
 import { HomeIcon } from '@heroicons/react/24/solid'
 // import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
 import { setIsOpenAddPostModal } from "../../store/userSlice"
-import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 
 
 function Header() {

@@ -1,19 +1,17 @@
 import { FaceSmileIcon } from "@heroicons/react/24/outline"
 import { ChangeEvent, FormEvent, useState } from "react"
-import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
 import { utilService } from "@/services/utilService"
 import { Post } from "../models/globalModel"
 import { postService } from "@/services/postService"
-import useSWR from 'swr'
 import { setPosts } from "@/store/userSlice"
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHook"
 
 
 type Props = { post: Post }
 
 function AddComment({ post }: Props) {
     const [comment, setComment] = useState<string>('')
-    const { user } = useAppSelector((state) => state.user)
-    const { posts } = useAppSelector((state) => state.user)
+    const { user, posts } = useAppSelector((state) => state.user)
     const dispatch = useAppDispatch()
 
 

@@ -30,7 +30,7 @@ function PostPreview({ post }: Props) {
                 <span onClick={() => setIsOpenLikeModal(prev => !prev)} className='font-bold mb-1 cursor-pointer'>{post.likes.length} likes</span>
                 <div className='break-text flex flex-wrap items-center'>
                     <span className='font-bold mr-1'>{post.createdBy.fullname}</span>
-                    <span className='break-text text-sm'>{post.postDesc}</span>
+                    <span className='break-text text-xs md:text-sm'>{post.postDesc}</span>
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import SideBar from '../components/SideBar'
-import { useAppSelector } from '../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { userService } from '@/services/userService'
 import { User } from '../models/globalModel'
 import { MessageHeroIcon } from '../iconLibary'

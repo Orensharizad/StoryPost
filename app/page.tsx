@@ -1,5 +1,4 @@
 import Feed from "./components/Feed";
-import Header from "./components/Header";
 import MiniProfile from "./components/MiniProfile";
 import SideBar from "./components/SideBar";
 import Suggestions from "./components/Suggestions";

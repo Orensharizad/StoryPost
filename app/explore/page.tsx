@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import SideBar from '../components/SideBar'
-import { useAppDispatch, useAppSelector } from '../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { setPosts, setSideBarType } from '@/store/userSlice'
 import { postService } from '@/services/postService'
 import { Post } from '../models/globalModel'
@@ -12,7 +12,7 @@ import ImgDetailsModal from '../components/ImgDetailsModal'
 import AddPostModal from '../components/AddPostModal'
 import SearchUsers from '../components/SearchUsers'
 
-function page() {
+function Page() {
     const [selectedPost, setSelectePost] = useState<null | Post>(null)
     const [search, setSearch] = useState<string>('')
     const [idx, setIdx] = useState<number>(0)
@@ -114,4 +114,4 @@ function page() {
 }
 
 
-export default page
+export default Page

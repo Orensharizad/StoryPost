@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import SideBar from '../../components/SideBar'
-import { useAppDispatch, useAppSelector } from '../../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { Post, User } from '../../models/globalModel'
 import { postService } from '@/services/postService'
 import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/24/solid'
@@ -116,7 +116,7 @@ function Profile({ params: { id } }: any) {
                                 {(loggdinUser?._id === user._id) && <Link href={'profile/edit'} className='bg-[#efefef] px-3 py-1 rounded-md font-semibold text-sm md:text-base'>Edit Profile</Link>}
                             </div>
                             <section className='hidden md:inline-flex'>
-                                <ProfileFollowers />
+                                <ProfileFollowers postsLength={posts.length} />
                             </section>
 
                         </div>
@@ -124,14 +124,16 @@ function Profile({ params: { id } }: any) {
                 }
 
                 <section className='md:hidden'>
-                    <ProfileFollowers />
+                    <ProfileFollowers postsLength={posts.length} />
                 </section>
 
                 <hr className='py-2' />
 
                 <div className='flex items-center justify-around md:justify-center space-x-6 text-sm text-[#737373] font-semibold'>
                     <div onClick={() => onChangeType('posts')} className={`flex items-center space-x-2 cursor-pointer hover:text-black ${type === 'posts' && 'text-black'}`}> <PostIcon /> <p className='hidden md:inline-block'>POSTS</p></div>
-                    <div onClick={() => onChangeType('saved')} className={`flex items-center space-x-2 cursor-pointer hover:text-black ${type === 'saved' && 'text-black'}`}> <SavedIcon /> <p className='hidden md:inline-block'>SAVED</p></div>
+
+                    {loggdinUser?._id === user?._id && <div onClick={() => onChangeType('saved')} className={`flex items-center space-x-2 cursor-pointer hover:text-black ${type === 'saved' && 'text-black'}`}> <SavedIcon /> <p className='hidden md:inline-block'>SAVED</p></div>}
+
                     <div className='flex items-center space-x-2 cursor-pointer hover:text-black'> <TaggIcon /> <p className='hidden md:inline-block'>TAGGED</p></div>
                 </div>
 
@@ -164,7 +166,6 @@ function Profile({ params: { id } }: any) {
 
                 {posts && selectedPost && <ImgDetailsModal post={posts[idx]} setSelectePost={setSelectePost} onChangeImg={onChangeImg} />}
 
-                {isOpenAddPostModal && <AddPostModal />}
 
 
             </section >

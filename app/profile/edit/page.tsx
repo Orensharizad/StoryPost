@@ -1,6 +1,6 @@
 'use client'
 
-import { useAppDispatch, useAppSelector } from '@/app/Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import SideBar from '@/app/components/SideBar'
 import { AdICon, MetaIcon, PassIcon, PayIcon, PersonIcon } from '@/app/iconLibary';
 import { uploadService } from '@/services/upload.service';
@@ -47,7 +47,7 @@ function page() {
         try {
             const updatedUser = await userService.update(newUser)
             dispatch(setUser(updatedUser))
-            router.push('/profile')
+            router.push(`/profile/${user?._id}`)
             toast.success('Successfully !', {
                 id: notification
             })

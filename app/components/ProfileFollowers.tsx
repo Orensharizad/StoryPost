@@ -1,9 +1,13 @@
 
-function ProfileFollowers() {
+
+type Props = {
+    postsLength: number
+}
+function ProfileFollowers({ postsLength }: Props) {
     return (
         <div className='flex items-center justify-around space-x-2 py-3 md:py-0  '>
             <div className='flex items-center space-x-2'>
-                <span className='font-bold'>87</span>
+                <span className='font-bold'>{postsLength}</span>
                 <p>Posts</p>
             </div>
             <div className='flex items-center space-x-2'>

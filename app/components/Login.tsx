@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useAppDispatch } from "../Hooks/stateHook";
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { User } from "../models/globalModel";
 import { setUser } from "../../store/userSlice";
 import { userService } from "@/services/userService";
@@ -14,8 +14,8 @@ function Login() {
     const [isSignIn, setIsSignIn] = useState(false)
     const dispatch = useAppDispatch()
 
-    const onSignIn = async (ev: FormEvent<HTMLFormElement>) => {
-        ev.preventDefault()
+    const onSignIn = async (ev: FormEvent<HTMLFormElement> | null) => {
+        ev?.preventDefault()
         const notification = toast.loading('loading...')
 
 
@@ -40,11 +40,11 @@ function Login() {
         const notification = toast.loading('loading...')
 
         try {
-            await userService.signup(userCred)
+            const user = await userService.signup(userCred)
             toast.success('Successfully toasted!', {
                 id: notification
             })
-            dispatch(setUser(userCred))
+            dispatch(setUser(user))
 
         } catch (err) {
             toast.error('Username already taken ', {
@@ -74,6 +74,16 @@ function Login() {
 
     }
 
+    const onSignInGuest = () => {
+        const userCred = {
+            username: 'oren',
+            fullname: "",
+            password: 'oren123',
+            userImg: "",
+        }
+        setUserCred(userCred)
+        onSignIn(null)
+    }
 
 
     return (
@@ -132,6 +142,8 @@ function Login() {
                     <span className="text-sm">{!isSignIn ? <p>Don't have an account?<span className="text-blue-500 text-sm font-semibold">Sign up</span></p> : <p>Don't have an account?<span className="text-blue-500 text-sm font-semibold">Sign in</span></p>}</span>
 
                 </div>
+
+                <button onClick={onSignInGuest}>Or Continue as Guest</button>
             </div>
         </div>
 

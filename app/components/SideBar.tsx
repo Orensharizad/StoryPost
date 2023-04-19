@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
-import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
-import { CreateIcon, ExploreIcon, HeartIcon, HomeIcon, MsgIcon, SearchIcon } from "../iconLibary"
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
+import { BigLogoIcon, CreateIcon, ExploreIcon, HeartIcon, HomeIcon, MsgIcon, SearchIcon, SmallLogoIcon } from "../iconLibary"
 import { setIsOpenAddPostModal, setIsOpenSearchModal, setSideBarType } from "../../store/userSlice"
 import Link from "next/link"
 import SearchModal from "./SearchModal"
@@ -23,24 +23,10 @@ function SideBar() {
         <nav className=" w-full md:w-auto bg-gray-100 md:bg-inherit fixed bottom-0 flex  md:border-none border border-t-slate-300 h-16 px-2 md:flex-col md:h-screen md:top-10 md:bottom-0 md:left-4  ">
             <Link href={'/'} className="hidden  md:inline-block" >
                 <div className={`w-24 h-10 hidden xl:inline-grid cursor-pointer ${isOpenSearchModal && 'xl:hidden'} `}>
-                    <Image
-                        src='https://links.papareact.com/ocw'
-                        alt="logo"
-                        width={120}
-                        height={80}
-
-                    />
+                    <BigLogoIcon />
                 </div>
-
                 <div className={`w-10 h-10    cursor-pointer ${isOpenSearchModal ? 'xl:inline-block' : 'xl:hidden'}`}>
-                    <Image
-                        src='https://links.papareact.com/jjm'
-                        alt="logo"
-                        width={30}
-                        height={30}
-
-
-                    />
+                    <SmallLogoIcon />
                 </div>
             </Link>
             <div className="mt-6 w-full md:w-auto  flex items-center z-10   justify-around md:flex-col md:justify-start md:items-start">

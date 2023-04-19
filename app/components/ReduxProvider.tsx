@@ -1,6 +1,8 @@
 'use client'
-import { useAppSelector } from "../Hooks/stateHook";
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
+import AddPostModal from "./AddPostModal";
 import Login from "./Login";
+import SearchModal from "./SearchModal";
 import UserMsg from "./UserMsg";
 
 type Props = {
@@ -9,7 +11,7 @@ type Props = {
 }
 
 export function ReduxProvider({ children }: Props) {
-    const { user } = useAppSelector((state) => state.user)
+    const { user, isOpenAddPostModal } = useAppSelector((state) => state.user)
 
     return (
         <div>
@@ -17,6 +19,9 @@ export function ReduxProvider({ children }: Props) {
             {user ?
                 <div>
                     {children}
+                    <SearchModal />
+                    {isOpenAddPostModal && <AddPostModal />}
+
                 </div>
                 : <Login />}
         </div>

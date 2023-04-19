@@ -14,20 +14,21 @@ interface UserState {
 
 // Define the initial state using that type
 const initialState: UserState = {
-    user: {
-        fullname
-            :
-            "Oren Sharizad",
-        userImg
-            :
-            "https://res.cloudinary.com/dd09wjwjn/image/upload/v1680598166/jlfeexlhbuls0x6lw0qs.jpg",
-        username
-            :
-            "oren",
-        _id
-            :
-            "6426da7636c777c59558ee9f"
-    },
+    // user: {
+    //     fullname
+    //         :
+    //         "Oren Sharizad",
+    //     userImg
+    //         :
+    //         "https://res.cloudinary.com/dd09wjwjn/image/upload/v1680598166/jlfeexlhbuls0x6lw0qs.jpg",
+    //     username
+    //         :
+    //         "oren",
+    //     _id
+    //         :
+    //         "6426da7636c777c59558ee9f"
+    // },
+    user: null,
     isOpenAddPostModal: false,
     isOpenSearchModal: false,
     posts: [],

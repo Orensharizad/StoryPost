@@ -1,12 +1,12 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useRef, useState } from 'react'
 import SearchUsers from './SearchUsers'
-import { useAppDispatch, useAppSelector } from '../Hooks/stateHook'
+import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { User } from '../models/globalModel'
 import { userService } from '@/services/userService'
 import Link from 'next/link'
-import useCloseModal from '../Hooks/useCloseModal'
 import { setIsOpenSearchModal } from '@/store/userSlice'
+import useCloseModal from '@/hooks/useCloseModal';
 
 type Props = {}
 
