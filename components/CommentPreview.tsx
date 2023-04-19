@@ -1,5 +1,5 @@
 import React from 'react'
-import { Comment } from '../models/globalModel'
+import { Comment } from '@/models/globalModel'
 import Moment from 'react-moment'
 
 type Props = {

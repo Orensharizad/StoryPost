@@ -2,8 +2,7 @@
 import Image from "next/image"
 import { MagnifyingGlassIcon, PlusCircleIcon, UserGroupIcon, HeartIcon, PaperAirplaneIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { HomeIcon } from '@heroicons/react/24/solid'
-// import { useAppDispatch, useAppSelector } from "../Hooks/stateHook"
-import { setIsOpenAddPostModal } from "../../store/userSlice"
+import { setIsOpenAddPostModal } from "../store/userSlice"
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 
 

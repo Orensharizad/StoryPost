@@ -1,16 +1,16 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import SideBar from '../components/SideBar'
+import SideBar from '../../components/SideBar'
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { setPosts, setSideBarType } from '@/store/userSlice'
 import { postService } from '@/services/postService'
-import { Post } from '../models/globalModel'
+import { Post } from '@/models/globalModel'
 import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/24/solid'
-import ExploreLoader from './ExploreLoader'
+import ExploreLoader from '../../components/ExploreLoader'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import ImgDetailsModal from '../components/ImgDetailsModal'
-import AddPostModal from '../components/AddPostModal'
-import SearchUsers from '../components/SearchUsers'
+import ImgDetailsModal from '../../components/ImgDetailsModal'
+import AddPostModal from '../../components/AddPostModal'
+import SearchUsers from '../../components/SearchUsers'
 
 function Page() {
     const [selectedPost, setSelectePost] = useState<null | Post>(null)

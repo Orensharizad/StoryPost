@@ -1,10 +1,8 @@
 'use client'
-import Image from "next/image"
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { BigLogoIcon, CreateIcon, ExploreIcon, HeartIcon, HomeIcon, MsgIcon, SearchIcon, SmallLogoIcon } from "../iconLibary"
-import { setIsOpenAddPostModal, setIsOpenSearchModal, setSideBarType } from "../../store/userSlice"
+import { BigLogoIcon, CreateIcon, ExploreIcon, HeartIcon, HomeIcon, MsgIcon, SearchIcon, SmallLogoIcon } from "../app/iconLibary"
+import { setIsOpenAddPostModal, setIsOpenSearchModal, setSideBarType } from "../store/userSlice"
 import Link from "next/link"
-import SearchModal from "./SearchModal"
 
 
 

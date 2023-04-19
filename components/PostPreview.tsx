@@ -1,5 +1,5 @@
 
-import { Post } from '../models/globalModel'
+import { Post } from '@/models/globalModel'
 import { useState } from 'react';
 import CommentList from './CommentList';
 import Image from 'next/image';

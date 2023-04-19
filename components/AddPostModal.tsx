@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { AddPostIcon } from "../iconLibary";
+import { AddPostIcon } from "../app/iconLibary";
 
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import useSWR from 'swr'
-import { setIsOpenAddPostModal, setPosts } from '../../store/userSlice';
+import { setIsOpenAddPostModal, setPosts } from '../store/userSlice';
 import { postService } from '@/services/postService';
 import { uploadService } from '@/services/upload.service';
-import { Post } from '../models/globalModel';
+import { Post } from '@/models/globalModel';
 import { toast } from 'react-hot-toast';
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 
@@ -88,7 +88,7 @@ function AddPostModal({ }: Props) {
                 <div>
                     <h3 className=' border border-b-slate-300 text-center py-2 text-[#262626]'>Create new post</h3>
                     {post.postImgUrl && <button onClick={handleAddPost} className='absolute top-3 right-4 text-[#0095f6] hover:text-[#1877f2]'>Share</button>}
-                    {post.postImgUrl && <ArrowLeftIcon onClick={() => setPost(prev => ({ ...prev, postImgUrl: '' }))} className='absolute top-3 left-4 w-5 h-5 cursor-pointer' />
+                    {post.postImgUrl && <ArrowLeftIcon onClick={() => setPost((prev: Post) => ({ ...prev, postImgUrl: '' }))} className='absolute top-3 left-4 w-5 h-5 cursor-pointer' />
                     }
                 </div>
 

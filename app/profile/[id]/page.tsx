@@ -1,19 +1,18 @@
 'use client'
 import { useEffect, useState } from 'react'
-import SideBar from '../../components/SideBar'
+import SideBar from '../../../components/SideBar'
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { Post, User } from '../../models/globalModel'
+import { Post, User } from '@/models/globalModel'
 import { postService } from '@/services/postService'
 import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { PostIcon, SavedIcon, TaggIcon } from '../../iconLibary'
-import ProfileFollowers from '../../components/ProfileFollowers'
+import ProfileFollowers from '../../../components/ProfileFollowers'
 import { userService } from '@/services/userService'
-import ImgDetailsModal from '@/app/components/ImgDetailsModal'
+import ImgDetailsModal from '@/components/ImgDetailsModal'
 import { setPosts, setSideBarType } from '@/store/userSlice'
-import AddPostModal from '@/app/components/AddPostModal'
-import ProfileImgsLoader from '@/app/components/ProfileImgsLoader'
-import ProfileHeaderLoader from '@/app/components/ProfileHeaderLoader'
+import ProfileImgsLoader from '@/components/ProfileImgsLoader'
+import ProfileHeaderLoader from '@/components/ProfileHeaderLoader'
 
 
 
@@ -23,7 +22,6 @@ function Profile({ params: { id } }: any) {
     const [user, setUser] = useState<User | null>(null)
     const [allUserPosts, setAllUserPosts] = useState<Post[]>([])
     const { posts } = useAppSelector((state) => state.user)
-    const { isOpenAddPostModal } = useAppSelector((state) => state.user)
     const [selectedPost, setSelectePost] = useState<null | Post>(null)
     const [type, setType] = useState<string>('posts')
     const [idx, setIdx] = useState<number>(0)

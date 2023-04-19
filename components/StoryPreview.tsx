@@ -1,5 +1,5 @@
 import React from 'react'
-import { Suggestion } from '../models/globalModel'
+import { Suggestion } from '@/models/globalModel'
 
 type Props = {
     suggestion: Suggestion

@@ -1,13 +1,11 @@
 'use client'
 import PostList from './PostList'
 import StoryList from './StoryList'
-import AddPostModal from './AddPostModal'
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
 import { postService } from '@/services/postService'
 import { setPosts, setSideBarType } from '@/store/userSlice'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import PostLoader from './PostLoader'
-import SearchModal from './SearchModal'
 
 
 

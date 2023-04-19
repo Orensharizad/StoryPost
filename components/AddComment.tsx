@@ -1,7 +1,7 @@
 import { FaceSmileIcon } from "@heroicons/react/24/outline"
 import { ChangeEvent, FormEvent, useState } from "react"
 import { utilService } from "@/services/utilService"
-import { Post } from "../models/globalModel"
+import { Post } from "@/models/globalModel"
 import { postService } from "@/services/postService"
 import { setPosts } from "@/store/userSlice"
 import { useAppDispatch, useAppSelector } from "@/hooks/stateHook"

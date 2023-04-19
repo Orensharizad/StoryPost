@@ -1,14 +1,14 @@
 'use client'
 import { useEffect, useState } from 'react'
-import SideBar from '../components/SideBar'
-import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
+import SideBar from '../../components/SideBar'
+import { useAppSelector } from '@/hooks/stateHook';
 import { userService } from '@/services/userService'
-import { User } from '../models/globalModel'
 import { MessageHeroIcon } from '../iconLibary'
-import UserLoader from '../components/UserLoader'
-import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
+import UserLoader from '../../components/UserLoader'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { db } from '@/firebase'
-import Chat from './Chat'
+import Chat from '../../components/messageCmps/Chat'
+import { User } from '@/models/globalModel';
 
 function page() {
     const { user: loggdinUser } = useAppSelector((state) => state.user)

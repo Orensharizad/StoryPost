@@ -1,7 +1,7 @@
 'use client'
 import { faker } from '@faker-js/faker'
 import React, { useEffect, useState } from 'react'
-import { Suggestion, User } from '../models/globalModel'
+import { Suggestion, User } from '@/models/globalModel'
 import { userService } from '@/services/userService'
 import Link from 'next/link'
 import SuggestionsLoader from './SuggestionsLoader'

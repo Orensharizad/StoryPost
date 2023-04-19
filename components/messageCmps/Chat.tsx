@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { User } from '../models/globalModel'
+import { User } from '@/models/globalModel'
 import { Timestamp, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { db } from '@/firebase'
 import MessageList from './MessageList'
 import MessageInput from './MessageInput'
 import { utilService } from '@/services/utilService'
-import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { useAppSelector } from '@/hooks/stateHook';
+import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 
 type Props = {
     selectedUser: User

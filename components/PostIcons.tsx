@@ -2,7 +2,7 @@
 import { BookmarkIcon, EllipsisHorizontalIcon, ChatBubbleOvalLeftEllipsisIcon, HeartIcon, PaperAirplaneIcon, FaceSmileIcon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { Like, Post, SavedBy } from '../models/globalModel'
+import { Like, Post, SavedBy } from '@/models/globalModel'
 import { utilService } from '@/services/utilService'
 import { postService } from '@/services/postService'
 import useSWR from 'swr'

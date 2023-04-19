@@ -1,7 +1,7 @@
 'use client'
 
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import SideBar from '@/app/components/SideBar'
+import SideBar from '@/components/SideBar'
 import { AdICon, MetaIcon, PassIcon, PayIcon, PersonIcon } from '@/app/iconLibary';
 import { uploadService } from '@/services/upload.service';
 import { userService } from '@/services/userService';

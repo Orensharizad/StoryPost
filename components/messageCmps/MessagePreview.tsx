@@ -1,6 +1,6 @@
 import React from 'react'
-import { Message, User } from '../models/globalModel'
-import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
+import { Message, User } from '@/models/globalModel'
+import { useAppSelector } from '@/hooks/stateHook';
 
 type Props = {
     message: Message

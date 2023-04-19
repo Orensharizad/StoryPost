@@ -1,11 +1,7 @@
 'use client'
-
 import { Provider } from "react-redux";
-import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { store } from "../../store/store";
-import Login from "./Login";
+import { store } from "../store/store";
 import { ReduxProvider } from "./ReduxProvider";
-import UserMsg from "./UserMsg";
 
 
 type Props = {

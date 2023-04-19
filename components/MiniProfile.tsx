@@ -1,6 +1,6 @@
 'use client'
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { setUser } from '../../store/userSlice'
+import { setUser } from '../store/userSlice'
 import Link from 'next/link'
 
 function MiniProfile() {

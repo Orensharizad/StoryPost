@@ -1,6 +1,4 @@
-import { db } from '@/firebase'
-import { doc, updateDoc } from 'firebase/firestore'
-import React, { useState } from 'react'
+
 
 type Props = {
     onSubmit: Function

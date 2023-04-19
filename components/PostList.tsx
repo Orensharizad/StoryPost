@@ -1,5 +1,5 @@
 import React from 'react'
-import { Post } from '../models/globalModel'
+import { Post } from '@/models/globalModel'
 import PostPreview from './PostPreview'
 
 type Props = {

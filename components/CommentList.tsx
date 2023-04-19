@@ -1,5 +1,5 @@
 import React from 'react'
-import { Comment } from '../models/globalModel'
+import { Comment } from '@/models/globalModel'
 import CommentPreview from './CommentPreview'
 
 type Props = {

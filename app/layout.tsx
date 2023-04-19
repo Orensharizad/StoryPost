@@ -1,5 +1,5 @@
 
-import { SessionProvider } from './components/SessionProvider'
+import { SessionProvider } from '../components/SessionProvider'
 import './styles/globals.css'
 
 

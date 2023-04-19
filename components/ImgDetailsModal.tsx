@@ -1,5 +1,5 @@
 'use client'
-import { Post } from '../models/globalModel'
+import { Post } from '@/models/globalModel'
 import CommentList from './CommentList';
 import PostPreview from './PostPreview';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'

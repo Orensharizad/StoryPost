@@ -1,7 +1,7 @@
-import Feed from "./components/Feed";
-import MiniProfile from "./components/MiniProfile";
-import SideBar from "./components/SideBar";
-import Suggestions from "./components/Suggestions";
+import Feed from "../components/Feed";
+import MiniProfile from "../components/MiniProfile";
+import SideBar from "../components/SideBar";
+import Suggestions from "../components/Suggestions";
 
 export default function Home() {
   return (

@@ -3,11 +3,10 @@ import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useAppDispatch, useAppSelector } from '@/hooks/stateHook';
-import { User } from "../models/globalModel";
-import { setUser } from "../../store/userSlice";
+import { User } from "@/models/globalModel";
+import { setUser } from "../store/userSlice";
 import { userService } from "@/services/userService";
 import { uploadService } from "@/services/upload.service";
-import LoginSignUp from "./LoginSignUp";
 
 function Login() {
     const [userCred, setUserCred] = useState(userService.getEmptyUser())

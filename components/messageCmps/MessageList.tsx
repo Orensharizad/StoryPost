@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Message, User } from '../models/globalModel';
+import { Message, User } from '@/models/globalModel';
 import MessagePreview from './MessagePreview';
 
 type Props = {

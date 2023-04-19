@@ -1,7 +1,7 @@
 'use client'
 import { faker } from '@faker-js/faker';
 import { useEffect, useRef, useState } from 'react';
-import { Suggestion } from '../models/globalModel';
+import { Suggestion } from '@/models/globalModel';
 import StoryPreview from './StoryPreview';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import StoryLoader from './StoryLoader';

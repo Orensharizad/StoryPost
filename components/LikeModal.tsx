@@ -1,5 +1,5 @@
 import React from 'react'
-import { Like } from '../models/globalModel'
+import { Like } from '@/models/globalModel'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
